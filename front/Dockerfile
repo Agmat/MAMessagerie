@@ -1,17 +1,17 @@
 FROM node:alpine
 
-EXPOSE 80
+EXPOSE 3000
 
-ARG PROJECT_DIR=./repository
+ARG PROJECT_DIR=.
 ENV HOME=/root
 
 ENV NODE_ENV $NODE_ENV
 
-ADD $PROJECT_DIR/package.json $HOME/1j1v/
+ADD $PROJECT_DIR/package.json $HOME/ma/
 
-WORKDIR $HOME/1j1v
+WORKDIR $HOME/ma
 RUN npm install --unsafe-perm --loglevel=warn --no-progress
 
-COPY $PROJECT_DIR $HOME/1j1v
+COPY $PROJECT_DIR $HOME/ma
 
 CMD npm start
