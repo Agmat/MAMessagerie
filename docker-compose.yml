@@ -27,7 +27,7 @@ services:
     environment:
       VIRTUAL_HOST: www.ma-messagerie.com
     volumes:
-      - ./front:/root/MA
+      - ./front:/root/ma
       - ma_front_node_modules:/root/ma/node_modules
   #SERVER
   maproxy:

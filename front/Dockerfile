@@ -5,7 +5,7 @@ EXPOSE 3000
 ARG PROJECT_DIR=.
 ENV HOME=/root
 
-ENV NODE_ENV $NODE_ENV
+ENV NODE_ENV=development
 
 ADD $PROJECT_DIR/package.json $HOME/ma/
 
