@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+} from 'react-router-dom';
 
 import Header from 'components/Header';
-import RealtorsContext from 'contexts/RealtorsContext';
 import useFetch from 'hooks/useFetch';
+import RealtorsContext from 'contexts/RealtorsContext';
+import Routes from './Routes';
 
 function App() {
   const [realtors, setRealtors] = useState({});
@@ -14,9 +18,12 @@ function App() {
 
   return (
     <RealtorsContext.Provider value={{ realtors, updateTheme: setRealtors }}>
-      <div className="appRoot">
-        <Header />
-      </div>
+      <Router>
+        <div className="appRoot">
+          <Header />
+          <Routes />
+        </div>
+      </Router>
     </RealtorsContext.Provider>
   );
 }
