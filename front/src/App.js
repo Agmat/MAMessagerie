@@ -1,28 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import Test from 'components/Test';
-import './App.css';
+import Header from 'components/Header';
+import RealtorsContext from 'contexts/RealtorsContext';
 
 function App() {
+  const [realtors, setRealtors] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit&nbsp;
-          <code>src/App.js</code>
-          &nbsp;and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <Test />
-    </div>
+    <RealtorsContext.Provider value={{ realtors, updateTheme: setRealtors }}>
+      <div className="appRoot">
+        <Header />
+      </div>
+    </RealtorsContext.Provider>
   );
 }
 
