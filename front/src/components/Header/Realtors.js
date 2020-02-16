@@ -6,6 +6,8 @@ import map from 'lodash/map';
 import find from 'lodash/find';
 import Typography from '@material-ui/core/Typography';
 import { useRouteMatch, Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 import MediaQuery from 'components/MediaQuery';
 import RealtorsContext from 'contexts/RealtorsContext';
@@ -36,8 +38,9 @@ const Realtors = () => {
       <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} fullWidth>
         <img src={currentRealtor?.logo} alt="profileImg" style={{ height: 40, borderRadius: '50%', marginRight: '.5rem' }} />
         <MediaQuery type="desktopAndTablet">
-          <Typography variant="button" style={{ color: 'white' }}>{currentRealtor?.name || 'Chargement'}</Typography>
+          <Typography variant="button" style={{ color: 'white', marginRight: '.5rem' }}>{currentRealtor?.name || 'Chargement'}</Typography>
         </MediaQuery>
+        <FontAwesomeIcon icon={faAngleDown} color="white" />
       </Button>
       <Menu
         keepMounted

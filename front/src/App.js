@@ -17,7 +17,7 @@ function App() {
   }, [baseData]);
 
   return (
-    <RealtorsContext.Provider value={{ realtors, updateTheme: setRealtors }}>
+    <RealtorsContext.Provider value={{ realtors, updateRealtors: setRealtors }}>
       <Router>
         <div className="appRoot">
           <Header />
