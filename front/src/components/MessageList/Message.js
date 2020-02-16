@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Typography from '@material-ui/core/Typography';
@@ -8,6 +8,7 @@ import clsx from 'clsx';
 import { useHistory } from 'react-router-dom';
 
 import { primaryBlue, primaryGrey } from 'styles/constants';
+import CounterContext from 'contexts/CounterContext';
 import withFormatedData from 'hoc/withFormatedData';
 
 const styles = (theme) => ({
@@ -43,9 +44,16 @@ const styles = (theme) => ({
 const Message = ({ data, icon, formatedDate, formatedTitle, classes, realtorId }) => {
   const { read } = data;
   const history = useHistory();
+  const { count, updateCount } = useContext(CounterContext);
 
   return (
-    <ButtonBase className={classes.root} onClick={() => history.push(`/${realtorId}/${data.id}`)}>
+    <ButtonBase
+      className={classes.root}
+      onClick={() => {
+        if (!data.read) updateCount(count - 1);
+        history.push(`/${realtorId}/${data.id}`);
+      }}
+    >
       <div style={{ display: 'flex', alignItems: 'center', position: 'relative' }}>
         <FontAwesomeIcon icon={icon} className={clsx({ [classes.read]: read })} style={{ marginRight: '.5rem', color: primaryBlue, width: '1.25rem', height: '1.25rem' }} />
         <Typography variant="h6" className={classes.title} style={(read) ? { fontWeight: 'normal' } : {}}>{formatedTitle}</Typography>
