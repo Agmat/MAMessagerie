@@ -13,6 +13,9 @@ export default function (ComposedComponent) {
   const FormatedData = ({ ...props }) => {
     const { data: { type, read, date, contact } } = props;
 
+    /**
+     * Return time formated according to message's date
+     */
     const getTime = () => {
       const parsedDate = moment(date).local('fr');
       if (parsedDate.isSame(new Date(), 'day')) return parsedDate.format('HH:MM');
@@ -21,6 +24,9 @@ export default function (ComposedComponent) {
       return parsedDate.format('l');
     };
 
+    /**
+     * Return title to use according to message's type
+     */
     const getTitle = () => {
       const name = `${contact.firstname} ${contact.lastname}`;
       switch (type) {
@@ -40,6 +46,9 @@ export default function (ComposedComponent) {
       }
     };
 
+    /**
+     * Return icon to use according to message's type
+     */
     const GetIcon = () => {
       switch (type) {
         case 'email':

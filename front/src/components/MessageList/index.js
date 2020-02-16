@@ -53,7 +53,7 @@ const MessageList = () => {
         useWindow={false}
       >
         {map(currentRealtor?.messages, (message) => (
-          <Message key={`message#${message.id}`} data={message} />
+          <Message key={`message#${message.id}`} data={message} realtorId={currentRealtor.id} />
         ))}
       </InfiniteScroll>
     </div>
