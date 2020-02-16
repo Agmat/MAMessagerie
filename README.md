@@ -13,7 +13,7 @@ Puis lancer cette commande depuis la racine du projet:
 docker-compose up -d
 ```
 
-## Accéder au site
+## Accéder aux sites
 
 Le projet est disponible depuis:
   - api - http://ma-api.com
