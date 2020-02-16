@@ -8,7 +8,7 @@ import Home from 'pages/home';
 
 const Routes = () => (
   <Switch>
-    <Route path="/:realtorId?" component={Home} />
+    <Route path="/:realtorId?" render={(props) => <Home {...props} key={props.match.params.realtorId} />} />
   </Switch>
 );
 
