@@ -12,6 +12,7 @@ function App() {
   const [realtors, setRealtors] = useState({});
   const baseData = useFetch('/realtors');
 
+  console.log(realtors);
   useEffect(() => {
     if (baseData) setRealtors(baseData);
   }, [baseData]);

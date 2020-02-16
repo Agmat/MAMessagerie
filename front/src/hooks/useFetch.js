@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-const useFetch = (url, query = 'page=1') => {
+const useFetch = (url, params = {}) => {
   const [result, setResult] = useState(null);
   useEffect(() => {
     if (url) {
-      fetch(`http://ma-api.com/${url}?${query}`)
+      fetch(`http://ma-api.com/${url}`, params)
         .then((res) => res.json())
         .then((data) => setResult(data));
     }

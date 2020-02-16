@@ -5,12 +5,12 @@ import {
 } from 'react-router-dom';
 
 import Home from 'pages/home';
-// import Message from 'pages/message';
+import Message from 'pages/message';
 
 const Routes = () => (
   <Switch>
-    <Route path="/:realtorId?" render={(props) => <Home {...props} key={props.match.params.realtorId} />} />
-    {/* <Route path="/:realtorId/:messageId" component={Message} /> */}
+    <Route path="/:realtorId/:messageId" strict component={Message} />
+    <Route path="/:realtorId?" strict render={(props) => <Home {...props} key={props.match.params.realtorId} />} />
   </Switch>
 );
 
