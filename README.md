@@ -12,3 +12,9 @@ Puis lancer cette commande depuis la racine du projet:
 ```bash
 docker-compose up -d
 ```
+
+## Accéder au site
+
+Le projet est disponible depuis:
+  - api - http://ma-api.com
+  - front - http://www.ma-messagerie.com
