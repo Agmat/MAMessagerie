@@ -7,10 +7,11 @@ import Grid from '@material-ui/core/Grid';
 
 import { MALogo } from 'assets/svg';
 import Realtors from 'components/Header/Realtors';
+import { primaryBlue } from 'styles/constants';
 
 const Header = () => (
   <AppBar position="static">
-    <Toolbar style={{ height: 60, minHeight: 60, paddingRight: 0 }}>
+    <Toolbar style={{ height: 60, minHeight: 60, paddingRight: 0, backgroundColor: primaryBlue }}>
       <Grid container style={{ height: '100%' }}>
         <Grid item xs={9} sm={10} style={{ display: 'flex', alignItems: 'center' }}>
           <SvgIcon style={{ marginRight: '.5rem' }}><path d={MALogo} /></SvgIcon>

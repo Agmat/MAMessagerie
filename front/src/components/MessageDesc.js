@@ -9,6 +9,7 @@ import moment from 'moment';
 
 import RealtorsContext from 'contexts/RealtorsContext';
 import useFetch from 'hooks/useFetch';
+import { primaryBlue, primaryGrey } from 'styles/constants';
 
 const styles = (theme) => ({
   root: {
@@ -67,11 +68,20 @@ const MessageDesc = ({ classes }) => {
           <Typography variant="h6">{renderName()}</Typography>
           <Grid container>
             <Grid item xs={6}><Typography variant="subtitle1">Email</Typography></Grid>
-            <Grid item xs={6}><Typography variant="subtitle1">{email}</Typography></Grid>
+            <Grid item xs={6}>
+              <Typography
+                variant="subtitle1"
+                component="a"
+                href={`mailto:${email}`}
+                style={{ color: primaryBlue, textDecoration: 'none' }}
+              >
+                {email}
+              </Typography>
+            </Grid>
           </Grid>
           <Grid container>
             <Grid item xs={6}><Typography variant="subtitle1">Téléphone</Typography></Grid>
-            <Grid item xs={6}><Typography variant="subtitle1">{phone}</Typography></Grid>
+            <Grid item xs={6}><Typography variant="subtitle1" style={{ color: primaryBlue }}>{phone}</Typography></Grid>
           </Grid>
         </>
       );
@@ -85,7 +95,9 @@ const MessageDesc = ({ classes }) => {
       return (
         <>
           <Typography variant="h5">{renderName()}</Typography>
-          <Typography variant="subtitle1" style={{ marginBottom: '2rem' }}>{`${fr.format('LL')} à ${fr.format('LT')}`}</Typography>
+          <Typography variant="subtitle1" style={{ marginBottom: '2rem', color: primaryGrey }}>
+            {`${fr.format('LL')} à ${fr.format('LT')}`}
+          </Typography>
           <Typography variant="subtitle1">{data.body}</Typography>
         </>
       );
