@@ -22,15 +22,22 @@ export default function (ComposedComponent) {
     };
 
     const getTitle = () => {
-      const name = `${contact.firstname} ${contact.lastname}`
+      const name = `${contact.firstname} ${contact.lastname}`;
       switch (type) {
         case 'email':
+          return name;
         case 'sms':
         case 'phone':
-          return name;
+          return ((contact.firstname) ? (
+            <>
+              {name}
+              &nbsp;
+              <span style={{ fontSize: '.8rem', fontWeight: 'normal' }}>{`(${contact.phone})`}</span>
+            </>
+          ) : contact.phone);
         default:
           return null;
-      };
+      }
     };
 
     const GetIcon = () => {
