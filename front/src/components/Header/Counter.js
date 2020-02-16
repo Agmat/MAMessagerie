@@ -10,12 +10,15 @@ import clsx from 'clsx';
 import useFetch from 'hooks/useFetch';
 import CounterContext from 'contexts/CounterContext';
 
-const styles = {
+const styles = (theme) => ({
   root: {
     display: 'flex',
     alignItems: 'center',
     padding: '.15rem 1rem',
     borderRadius: 8,
+    [theme.breakpoints.down('xs')]: {
+      padding: '.15rem .5rem',
+    },
   },
   with: {
     backgroundColor: '#92D848',
@@ -23,7 +26,7 @@ const styles = {
   none: {
     backgroundColor: 'grey',
   },
-};
+});
 
 const Counter = ({ classes }) => {
   const { count, updateCount } = useContext(CounterContext);
@@ -31,6 +34,7 @@ const Counter = ({ classes }) => {
   const real = useFetch(`/realtors/${realtorId}`);
 
   useEffect(() => {
+    // eslint-disable-next-line camelcase
     updateCount(real?.unread_messages);
   }, [real]);
 

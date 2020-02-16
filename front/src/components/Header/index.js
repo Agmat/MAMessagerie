@@ -9,6 +9,7 @@ import { MALogo } from 'assets/svg';
 import Realtors from 'components/Header/Realtors';
 import Counter from 'components/Header/Counter';
 import { primaryBlue } from 'styles/constants';
+import MediaQuery from 'components/MediaQuery';
 
 const Header = () => (
   <AppBar position="static">
@@ -16,7 +17,12 @@ const Header = () => (
       <Grid container style={{ height: '100%' }}>
         <Grid item xs={9} sm={10} style={{ display: 'flex', alignItems: 'center' }}>
           <SvgIcon style={{ marginRight: '.5rem' }}><path d={MALogo} /></SvgIcon>
-          <Typography variant="h6" style={{ marginRight: '.5rem' }}>MeilleursAgents PRO</Typography>
+          <MediaQuery type="desktopAndTablet">
+            <Typography variant="h6" style={{ marginRight: '.5rem' }}>MeilleursAgents PRO</Typography>
+          </MediaQuery>
+          <MediaQuery type="mobileScreen">
+            <Typography variant="subtitle1" style={{ marginRight: '.5rem', fontWeight: 'bold' }}>MeilleursAgents PRO</Typography>
+          </MediaQuery>
           <Counter />
         </Grid>
         <Grid item xs={3} sm={2}>
